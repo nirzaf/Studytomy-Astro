@@ -1,0 +1,73 @@
+---
+const examBoards = [
+  {
+    name: 'Edexcel',
+    logo: 'https://res.cloudinary.com/durxawmiv/image/upload/c_crop,ar_16:9/v1705853337/edexel_jx0djp.jpg'
+  },
+  {
+    name: 'Cambridge',
+    logo: 'https://res.cloudinary.com/durxawmiv/image/upload/c_crop,ar_16:9/v1705853338/Cambridge_CIE_akyerh.png'
+  },
+  {
+    name: 'AQA',
+    logo: 'https://res.cloudinary.com/durxawmiv/image/upload/c_scale,h_160,w_320/v1705853337/AQA_ovicue.jpg'
+  },
+  {
+    name: 'OCR',
+    logo: 'https://res.cloudinary.com/durxawmiv/image/upload/c_crop,ar_16:9/v1705853337/OCR_A_iotkun.jpg'
+  },
+  {
+    name: 'IB',
+    logo: 'https://res.cloudinary.com/durxawmiv/image/upload/c_crop,ar_16:9/v1705853337/IB_BI_unmu2v.jpg'
+  },
+  {
+    name: 'OSSD',
+    logo: 'https://res.cloudinary.com/durxawmiv/image/upload/c_pad,b_gen_fill,ar_16:9/v1705853338/OSSD_mtjhiy.jpg'
+  },
+  {
+    name: 'VCE',
+    logo: 'https://res.cloudinary.com/durxawmiv/image/upload/c_crop,ar_16:9/v1705854975/vce_fakkmz.jpg'
+  }
+];
+---
+
+<section class="py-12 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-montserrat font-bold text-center text-secondary mb-12">
+      Exam Boards
+    </h2>
+    <div class="overflow-hidden">
+      <div class="flex animate-scroll">
+        {[...examBoards, ...examBoards].map((board, index) => (
+          <div class="flex-none w-64 mx-4">
+            <img 
+              src={board.logo} 
+              alt={`${board.name} Logo`} 
+              class="h-32 object-contain"
+              loading={index >= examBoards.length ? "lazy" : "eager"}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+</style>

@@ -1,0 +1,22 @@
+---
+interface Props {
+  name: string;
+  image: string;
+  text: string;
+  subject: string;
+  examBoard: string;
+}
+
+const { name, image, text, subject, examBoard } = Astro.props;
+---
+
+<div class="bg-white p-6 rounded-lg shadow-md">
+  <div class="flex items-center mb-4">
+    <div class="w-12 h-12 rounded-full bg-gray-200 mr-4"></div>
+    <div>
+      <h4 class="font-montserrat font-semibold text-secondary">{name}</h4>
+      <p class="text-sm text-gray-600">{subject} - {examBoard}</p>
+    </div>
+  </div>
+  <p class="text-gray-700">{text}</p>
+</div>

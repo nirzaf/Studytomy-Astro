@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const sections = [
+  {
+    title: 'About LearnGlobal',
+    content: "At LearnGlobal, we believe that education has the power to transform lives. Our online platform connects students with qualified tutors and instructors from around the world, providing a personalized and convenient learning experience. Whether you're looking to excel in academics, learn a new language, or develop new skills, LearnGlobal is here to support you on your educational journey.",
+    image: "https://ik.imagekit.io/studytomy/about_qobvag.jpg?updatedAt=1717838524379",
+    imageAlt: "About LearnGlobal",
+    reverse: false
+  },
+  {
+    title: 'Our Mission',
+    content: "Our mission is to empower students by providing them with access to high-quality education and learning opportunities. We strive to create a global learning community where students can connect with experienced tutors who are passionate about sharing their knowledge and expertise. At LearnGlobal, we take responsibility for your child/Children's progress in education. We will provide short notes on specific sections that need more attention with topic-based questions practice as well.",
+    image: "https://ik.imagekit.io/studytomy/our_mission_p0hvfn.jpg?updatedAt=1717838581506",
+    imageAlt: "Our Mission",
+    reverse: true
+  },
+  {
+    title: 'Comprehensive Approach',
+    content: "LearnGlobal offers a comprehensive approach that encompasses a wide array of subjects which are thoughtfully designed to equip each student with the knowledge, skills, and unwavering support they require to not only excel but truly thrive in their academic pursuits.",
+    image: "https://ik.imagekit.io/studytomy/Comprehensive_Approach_cfqzud.jpg?updatedAt=1717838629649",
+    imageAlt: "Comprehensive Approach",
+    reverse: false
+  }
+];
+---
+
+<Layout title="About Us">
+  <main>
+    <!-- Hero Section -->
+    <section 
+      class="pt-32 pb-16 bg-cover bg-center relative"
+      style="background-image: url(https://ik.imagekit.io/studytomy/studytomy-background-image?updatedAt=1717837248433)"
+    >
+      <div class="absolute inset-0 bg-black/80"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+        <h1 class="text-4xl sm:text-5xl font-montserrat font-bold mb-6">
+          About Us
+        </h1>
+        <p class="text-xl opacity-90 max-w-2xl">
+          Discover how we're transforming global education through personalized online tutoring
+        </p>
+      </div>
+    </section>
+
+    <!-- Content Sections -->
+    {sections.map((section, index) => (
+      <section class={`py-16 ${index % 2 === 1 ? 'bg-gray-light' : 'bg-white'}`}>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class={`grid md:grid-cols-2 gap-12 items-center ${section.reverse ? 'md:grid-flow-dense' : ''}`}>
+            <div class={section.reverse ? 'md:col-start-2' : ''}>
+              <h2 class="text-3xl font-montserrat font-bold text-secondary mb-6">
+                {section.title}
+              </h2>
+              <p class="text-gray-700 leading-relaxed">
+                {section.content}
+              </p>
+            </div>
+            <div class={`relative ${section.reverse ? 'md:col-start-1' : ''}`}>
+              <img
+                src={section.image}
+                alt={section.imageAlt}
+                class="rounded-lg shadow-lg w-full h-auto object-cover"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 rounded-lg shadow-inner"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-secondary text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-montserrat font-bold mb-6">
+          Ready to Start Your Learning Journey?
+        </h2>
+        <p class="text-xl mb-8 opacity-90">
+          Join thousands of students achieving their academic goals with LearnGlobal
+        </p>
+        <a
+          href="/contact"
+          class="inline-block px-8 py-4 bg-primary text-white font-medium rounded-md hover:bg-primary/90 transition-colors relative overflow-hidden group"
+        >
+          <span class="relative z-10">Book Your Free Trial</span>
+          <div class="absolute inset-0 w-2 bg-white/20 skew-x-[45deg] group-hover:animate-shine"></div>
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  @keyframes shine {
+    from {
+      transform: translateX(-100%) skew(-45deg);
+    }
+    to {
+      transform: translateX(200%) skew(-45deg);
+    }
+  }
+
+  .animate-shine {
+    animation: shine 1s infinite;
+  }
+</style>

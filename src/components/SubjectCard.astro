@@ -1,0 +1,13 @@
+---
+interface Props {
+  name: string;
+  icon: string;
+}
+
+const { name, icon } = Astro.props;
+---
+
+<div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+  <div class="text-4xl mb-4">{icon}</div>
+  <h3 class="font-montserrat font-semibold text-secondary">{name}</h3>
+</div>
